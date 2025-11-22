@@ -1,14 +1,25 @@
 body {
+    margin: 0;
+    padding: 0;;
+    height: 100vh;
+    overflow-x: hidden;
+
     background-image: url('../assets/index-fundo.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .footer {
     font-family: Roboto;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.138);
@@ -20,21 +31,29 @@ body {
 .btn-qa {
     position: absolute;
     left: 50%;
-    top: 66.4%; /* ajuste até encaixar certinho abaixo do vinil */
+    top: 68%;
     transform: translateX(-50%);
+    
+    width: 810px;
+    height: 290px;
+    
+    background-image: url('../assets/button_q&a.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: .2s ease;
 }
 
-.btn-qa img {
-    width: 820px;  /* ajuste aqui o tamanho */
-    height: auto;
-    display: block;
-    transform: rotate(0.3deg);
+.btn-qa:hover {
+    background-image: url('../assets/button_q&a_pressed.png');
+    transform: translateX(-50%) scale(1.02);
 }
 
-.btn-qa img:hover {
-    width: 820px;  /* ajuste aqui o tamanho */
-    height: auto;
-    display: block;
-    transform: rotate(0.3deg);
-    background-image: url(../assets/button_q&a_pressed.png);
+@media (max-height: 900px) {
+    .btn-qa {
+        width: 600px;
+        height: 220px;
+        top: 68%;
+    }
 }
