@@ -1,0 +1,40 @@
+body {
+    background-image: url('../assets/index-fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+.footer {
+    font-family: Roboto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.138);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 8px;
+}
+
+.btn-qa {
+    position: absolute;
+    left: 50%;
+    top: 66.4%; /* ajuste até encaixar certinho abaixo do vinil */
+    transform: translateX(-50%);
+}
+
+.btn-qa img {
+    width: 820px;  /* ajuste aqui o tamanho */
+    height: auto;
+    display: block;
+    transform: rotate(0.3deg);
+}
+
+.btn-qa img:hover {
+    width: 820px;  /* ajuste aqui o tamanho */
+    height: auto;
+    display: block;
+    transform: rotate(0.3deg);
+    background-image: url(../assets/button_q&a_pressed.png);
+}
