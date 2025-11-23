@@ -1,0 +1,43 @@
+/*CONFIG PADRÃO DO FUNDO*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/*CONFIG PADRÃO DO RODAPÉ*/
+
+.footer {
+    font-family: Roboto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.138);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 10px;
+}
+
+@media (max-height: 900px) {
+    .footer {
+        font-size: 8px;
+    }
+}
