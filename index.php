@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/padrao.css">
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="_static/css/padrao.css">
+    <link rel="stylesheet" href="_static/css/index.css">
+    <link rel="icon" type="image/x-icon" href="_static/assets/favicon.ico">
     <title>AAL01</title>
 </head>
 <body>
 
     <main>
         <div class="Login&Cadastro-buttons">
-            <a href="users/template/login.html" class="btn-login"></a>
-            <a href="users/template/cadastro.html" class="btn-cadastro"></a>
+            <a href="users/template/login.php" class="btn-login"></a>
+            <a href="users/template/cadastro.php" class="btn-cadastro"></a>
         </div>
 
         <div class="Q&A-button">
-            <a href="quem_somos.html" class="btn-qa"></a>
+            <a href="quem_somos.php" class="btn-qa"></a>
         </div>
     </main>
 

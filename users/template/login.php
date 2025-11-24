@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/padrao.css">
-    <link rel="stylesheet" href="../../CSS/login.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="../../_static/css/padrao.css">
+    <link rel="stylesheet" href="../../_static/css/login.css">
+    <link rel="icon" type="image/x-icon" href="../../_static/assets/favicon.ico">
     <title>Login</title>
 </head>
 <body>
 
     <header>
-        <button onclick="window.location.href='../../index.html'" class="btn-voltar"><img src="../../assets/button-return.png" alt="Voltar"></button>
+        <button onclick="window.location.href='../../index.html'" class="btn-voltar"><img src="../../_static/assets/button-return.png" alt="Voltar"></button>
     </header>
+
 
     <main>
         <form action="../url.php" method="POST" class="login-form">
