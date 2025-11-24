@@ -9,21 +9,23 @@
     <title>AAL01</title>
 </head>
 <body>
+    <header>
 
+    </header>
+    
     <main>
         <div class="Login&Cadastro-buttons">
-            <a href="users/template/login.php" class="btn-login"></a>
-            <a href="users/template/cadastro.php" class="btn-cadastro"></a>
+            <a href="users/template/login.php" class="btn btn-login"></a>
+            <a href="users/template/cadastro.php" class="btn btn-cadastro"></a>
         </div>
 
         <div class="Q&A-button">
-            <a href="quem_somos.php" class="btn-qa"></a>
+            <a href="quem_somos.php" class="btn btn-qa"></a>
         </div>
     </main>
 
     <footer class="footer">
         <p>© 2025 AUDIO·ANG3L LIBRARY·01 — CRIADO POR JOÃO PEDRO GALVERO APENAS PARA USO EDUCATIVO — AAL01</p>
     </footer>
-
 </body>
 </html>

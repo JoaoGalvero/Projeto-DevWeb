@@ -9,33 +9,27 @@
     <title>Login</title>
 </head>
 <body>
-
     <header>
         <button onclick="window.location.href='../../index.html'" class="btn-voltar"><img src="../../_static/assets/button-return.png" alt="Voltar"></button>
     </header>
 
-
     <main>
         <form action="../url.php" method="POST" class="login-form">
 			<input type="hidden" name="url" value="login_user">
-			<h1> Login </h1>
 			<div>
-			<label for="email">Email:</label><br>
-            <input id="email" type="email" name="email" required> <br>
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" required>
 			</div>
 			<div>
-			<label for="password">Senha:</label><br>
+			<label for="password">Senha:</label>
 			<input id="password" type="password" name="password" required>
 			</div>
-			<button type="submit" class="btn-enviar">
-				Enviar
-            </button>
+			<button type="submit" class="btn-enviar"></button>
         </form>
     </main>
 
     <footer class="footer">
         <p>© 2025 AUDIO·ANG3L LIBRARY·01 — CRIADO POR JOÃO PEDRO GALVERO APENAS PARA USO EDUCATIVO — AAL01</p>
     </footer>
-
 </body>
 </html>

@@ -2,129 +2,59 @@ body {
     background-image: url('../assets/index-fundo.jpg');
 }
 
-.btn-login {
+.btn {
     position: absolute;
-    left: 50.7%;
-    top: 25%;
-    transform: translateX(-50%);
-
-    width: 330px;
-    height: 190px;
-
-    background-image: url('../assets/button_login.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    transition: transform 1s ease;
+}
 
-    -webkit-mask-image: url('../assets/button_login.png');
-    mask-image: url('../assets/button_login.png');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
+.btn:hover {
+    transform: scale(1.03);
+}
 
-    transition: .2s ease;
+.btn-login {
+    background-image: url('../assets/button_login.png');
+
+    left: 41.5vw;
+    top: 22vh;
+    width: 18vw;
+    aspect-ratio: 262 / 83;
+
+    z-index: 3;
 }
 
 .btn-login:hover {
     background-image: url('../assets/button_login-hover.png');
-    transform: translateX(-50%) scale(1.02);
-    -webkit-mask-image: url('../assets/button_login-hover.png');
-    mask-image: url('../assets/button_login-hover.png');
 }
 
 .btn-cadastro {
-    position: absolute;
-    left: 58%;
-    top: 53%;
-    transform: translateX(-83%);
-
-    width: 400px;
-    height: 310px;
-
     background-image: url('../assets/button_cadastro.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 
-    -webkit-mask-image: url('../assets/button_cadastro.png');
-    mask-image: url('../assets/button_cadastro.png');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-
-    transition: .2s ease;
+    left: 39.6vw;
+    top: 55vh;
+    width: 22vw;
+    aspect-ratio: 329 / 135;
+    
+    z-index: 3;
 }
 
 .btn-cadastro:hover {
     background-image: url('../assets/button_cadastro-hover.png');
-    -webkit-mask-image: url('../assets/button_cadastro-hover.png');
-    mask-image: url('../assets/button_cadastro-hover.png');
 }
 
 .btn-qa {
-    position: absolute;
-    left: 50%;
-    top: 68%;
-    transform: translateX(-50%);
-
-    width: 810px;
-    height: 290px;
-
     background-image: url('../assets/button_q&a.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 
-    -webkit-mask-image: url('../assets/button_q&a.png');
-    mask-image: url('../assets/button_q&a.png');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
+    top: 67vh;
+    left: 27.5vw;
+    width: 45vw;
+    aspect-ratio: 690 / 250;
 
-    transition: .2s ease;
+    z-index: 2;
 }
 
 .btn-qa:hover {
     background-image: url('../assets/button_q&a_pressed.png');
-    transform: translateX(-50%) scale(1.02);
-    -webkit-mask-image: url('../assets/button_q&a_pressed.png');
-    mask-image: url('../assets/button_q&a_pressed.png');
-}
-
-@media (max-height: 900px) {
-    .btn-login {
-        width: 260px;
-        height: 150px;
-        top: 23.5%;
-        left: 50.2%;
-        transform: translateX(-50%);
-    }
-
-    .btn-cadastro {
-        width: 320px;
-        height: 240px;
-        top: 54.5%;
-        left: 55%;
-        transform: translateX(-70%);
-    }
-
-    .btn-qa {
-        width: 610px;
-        height: 230px;
-        top: 69%;
-        transform: translateX(-50%);
-    }
-
-    .footer {
-        font-size: 8px;
-    }
 }

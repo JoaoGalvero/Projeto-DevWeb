@@ -9,18 +9,14 @@
     <title>Cadastro</title>
 </head>
 <body>
-
     <header>
         <button onclick="window.location.href='../../index.html'" class="btn-voltar"><img src="../../_static/assets/button-return.png" alt="Voltar"></button>
     </header>
-
-
 
     <main>
 		<form action="../url.php" method="POST" class="signup-form">
 			<input type="hidden" name="url" value="signup_user">
 			<input type="hidden" name="url" value="signup_user">
-			<h1> Cadastro </h1>
 			<div>
 			<label for="username">Nome:</label><br>
 			<input id="username" type="text" name="username" required>
@@ -33,10 +29,12 @@
 			<label for="password">Senha:</label><br>
             <input id="password" type="password" name="password" required>
 			</div>
-			<button type="submit" class="btn-enviar">
-				Enviar
-            </button>
+			<button type="submit" class="btn-enviar"></button>
         </form>
     </main>
+
+    <footer class="footer">
+        <p>© 2025 AUDIO·ANG3L LIBRARY·01 — CRIADO POR JOÃO PEDRO GALVERO APENAS PARA USO EDUCATIVO — AAL01</p>
+    </footer>
 </body>
 </html>
