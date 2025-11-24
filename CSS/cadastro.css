@@ -47,26 +47,26 @@ main {
     gap: 27px;
 }
 
-.login-form {
+.signup-form {
 	background-color: #191919;
 	border-radius: 15px;
 	width: 400px;
-	height: 400px;
+	height: 550px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 15px;
-}
-
-.login-form div {
 	margin: 10px;
 }
 
-.login-form input {
+.signup-form div {
+	margin: 10px;
+}
+
+.signup-form input {
     border-radius: 10px;
     border: none;
-	background-color: #242424;
+    background-color: #242424;
 	margin: 10px 0px;
     width: 270px;
     height: 40px;
@@ -77,12 +77,12 @@ main {
     color: white;
 }
 
-.login-form input:focus {
+.signup-form input:focus {
 	outline: none;
 }
 
-.login-form button {
-    background-color: #433194;
+.signup-form button {
+	background-color: #433194;
 	width: 270px;
 	height: 40px;
 	color: #fff;
@@ -91,33 +91,12 @@ main {
 	margin: 15px 10px;
 }
 
-.login-form label {
+
+.signup-form label {
 	color: #fff
 }
 
-.login-form h1 {
+.signup-form h1 {
 	color: #433194;
-}
-
-
-.btn-enviar {
-/*
-  background: none;
-  align-self: center;
-  border: none;
-  padding-top: 10px;
-  cursor: pointer;
-  display: inline-block;
-  overflow: visible; 
-  width: auto;
-  height: auto;
-*/
-}
-
-.btn-enviar img {
-  display: block;
-  width: 73px;             /* ajuste pra seu tamanho desejado */
-  height: auto;
-  object-fit: contain;
 }
 
