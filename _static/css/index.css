@@ -31,6 +31,7 @@ body {
 
 .btn-cadastro {
     background-image: url('../assets/button_cadastro.png');
+    position: fixed;
 
     left: 39.6vw;
     top: 55vh;

@@ -32,12 +32,14 @@ header {
     background-color: transparent;
     position: absolute;
     left: 41.5vw;
-    top: 37vh;
+    top: 32vh;
     width: 17vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    transform: scale(0.8);
 }
 
 .signup-form label {
@@ -45,8 +47,8 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    font-size: 1.4vw;
-    font-weight: 600;
+    font-size: 1.2vw;
+    font-weight: 400;
     color: #ffffff;
     margin-bottom: 0.3em;
     font-family: 'Impact', 'Arial Black', sans-serif;
@@ -65,7 +67,7 @@ header {
     background-size: cover;
     border-radius: 2rem;
     border: none;
-    width: 20vw;
+    width: 15vw;
     height: 5.3vh;
     font-size: 1vw;
     font-family: 'Times New Roman', Times, serif;
@@ -74,7 +76,7 @@ header {
     color: white;
     background-color: transparent;
     transition: all 0.3s ease;
-    margin-bottom: 5.3vh;
+    margin-bottom: 4.4vh;
 }
 
 .signup-form input:focus {
@@ -88,8 +90,8 @@ header {
     background-position: center;
     background-size: contain;
     background-color: transparent;
-    width: 5.5vw;
-    height: 6vh;
+    width: 7vw;
+    height: 7vh;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
