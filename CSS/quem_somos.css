@@ -1,0 +1,9 @@
+body {    
+    background-image: url('../assets/quem-somos-fundo.jpg');
+}
+
+.btn-close{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
