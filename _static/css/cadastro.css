@@ -32,7 +32,7 @@ header {
     background-color: transparent;
     position: absolute;
     left: 41.5vw;
-    top: 32vh;
+    top: 30vh;
     width: 17vw;
     display: flex;
     flex-direction: column;
@@ -90,8 +90,8 @@ header {
     background-position: center;
     background-size: contain;
     background-color: transparent;
-    width: 7vw;
-    height: 7vh;
+    width: 9vw;
+    height: 9vh;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;

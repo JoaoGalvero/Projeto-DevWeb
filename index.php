@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="_static/css/padrao.css">
     <link rel="stylesheet" href="_static/css/index.css">
     <link rel="icon" type="image/x-icon" href="_static/assets/favicon.ico">
+
     <title>AAL01</title>
 </head>
 <body>
