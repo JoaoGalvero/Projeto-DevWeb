@@ -1,11 +1,11 @@
 body {
-    background-image: url('../assets/index-fundo2.jpg');
+    background-image: url('../assets/index-fundo.jpg');
 }
 
 .btn-login {
     position: absolute;
     left: 50.7%;
-    top: 21%;
+    top: 25%;
     transform: translateX(-50%);
 
     width: 330px;
@@ -37,7 +37,7 @@ body {
 
 .btn-cadastro {
     position: absolute;
-    left: 55.4%;
+    left: 58%;
     top: 53%;
     transform: translateX(-83%);
 
@@ -70,11 +70,11 @@ body {
 .btn-qa {
     position: absolute;
     left: 50%;
-    top: 70%;
+    top: 68%;
     transform: translateX(-50%);
 
-    width: 980px;
-    height: 390px;
+    width: 810px;
+    height: 290px;
 
     background-image: url('../assets/button_q&a.png');
     background-size: contain;
@@ -100,29 +100,31 @@ body {
     mask-image: url('../assets/button_q&a_pressed.png');
 }
 
-@media (max-height: 1100px), (max-width: 1366px) {
+@media (max-height: 900px) {
+    .btn-login {
+        width: 260px;
+        height: 150px;
+        top: 23.5%;
+        left: 50.2%;
+        transform: translateX(-50%);
+    }
 
-  .btn-login {
-    width: clamp(220px, 28vw, 330px);
-    height: clamp(120px, 18vh, 190px);
-    top: 22%;
-    left: 50.3%;
-    transform: translateX(-50%);
-  }
+    .btn-cadastro {
+        width: 320px;
+        height: 240px;
+        top: 54.5%;
+        left: 55%;
+        transform: translateX(-70%);
+    }
 
-  .btn-cadastro {
-    width: clamp(280px, 32vw, 400px);
-    height: clamp(200px, 28vh, 310px);
-    top: 53.2%;
-    left: 49.4%;
-    transform: translateX(-46%);
-  }
+    .btn-qa {
+        width: 610px;
+        height: 230px;
+        top: 69%;
+        transform: translateX(-50%);
+    }
 
-  .btn-qa {
-    width: clamp(520px, 68vw, 790px);
-    height: clamp(200px, 32vh, 270px);
-    top: 72.5%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+    .footer {
+        font-size: 8px;
+    }
 }
