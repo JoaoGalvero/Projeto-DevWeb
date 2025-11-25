@@ -1,9 +1,42 @@
 body {    
-    background-image: url('../assets/quem-somos-fundo.jpg');
+    background: url('../assets/quem-somos-fundo.jpg') center/cover no-repeat;
 }
 
-.btn-close{
-    background: none;
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.media-player-wrapper {
+    background-image: url('../assets/MediaPlayer_Layer.png');
+    background-size: cover;
+    width: 104vw;
+    height: 104vh;
+    transform: scale(0.89);
+}
+
+#mp-png {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+#btn-return {
+    position: absolute;
+    top: 9.7%;
+    left: 1.8%;
+    width: 4.2vw;
+    aspect-ratio: 1 / 1;
+    background: url('../assets/button-return2.png') center/contain no-repeat;
     border: none;
+    background-color: transparent;
     cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    z-index: 10;
+}
+
+#btn-return:hover {
+    transform: scale(1.05);
+    filter: brightness(1.3);
 }

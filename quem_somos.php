@@ -10,7 +10,16 @@
 
     <title>Quem Somos?</title>
 </head>
-<body>
+<body class="center-content">
+    <header>
+
+    </header>
+
+    <main>
+        <div class="media-player-wrapper">
+            <button id="btn-return"></button>
+        </div>
+    </main>
     
 </body>
 </html>
