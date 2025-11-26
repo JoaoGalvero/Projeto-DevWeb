@@ -1,0 +1,33 @@
+:root {
+    --bs-primary: #493195;
+    --bs-primary-rgb: 73, 49, 149;
+
+    --bs-link-color: var(--bs-primary);
+    --bs-link-hover-color: color-mix(in srgb, var(--bs-primary) 85%, black);
+
+    --bs-primary-bg-subtle: rgba(73, 49, 149, 0.08);
+    --bs-primary-border-subtle: rgba(73, 49, 149, 0.15);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+
+    --bs-btn-hover-bg: color-mix(in srgb, var(--bs-primary) 85%, black);
+    --bs-btn-hover-border-color: color-mix(in srgb, var(--bs-primary) 85%, black);
+
+    --bs-btn-active-bg: color-mix(in srgb, var(--bs-primary) 75%, black);
+    --bs-btn-active-border-color: color-mix(in srgb, var(--bs-primary) 75%, black);
+
+    --bs-btn-disabled-bg: var(--bs-primary);
+    --bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+
+    --bs-btn-hover-bg: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-primary);
+    --bs-btn-hover-color: #fff;
+}
