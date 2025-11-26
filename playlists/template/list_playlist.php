@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+	session_start();
 	require "../../_core/connection.php";
 	require "../view.php";
 	

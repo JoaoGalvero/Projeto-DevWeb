@@ -12,18 +12,23 @@ class Router {
     }
 
 	private function call() {
-        $action = $_POST["url"] ?? "";
-		
+		$method = $_SERVER['REQUEST_METHOD'];
+		$data = ($method === 'POST') ? $_POST : $_GET;
+
+		$action = $data['url'] ?? '';
+
 		if (!$action) {
-		    die("No URL in POST");
+			die("No URL in request");
 		}
 
-        if (isset($this->url[$action])) {
-            $fn = $this->url[$action];
-            return $fn($_POST, $this->pdo);
-		}else {
+		if (!isset($this->url[$action])) {
 			die("Route '$action' not found");
 		}
+		error_log($action);
+
+		$fn = $this->url[$action];
+		return $fn($data, $this->pdo);
 		exit;
-    }
+	}
+
 }

@@ -20,7 +20,7 @@ function login_user($request, $pdo) {
     $_SESSION['user_id']    = $user['id'];
     $_SESSION['user_email'] = $user['email'];
     $_SESSION['user_name']  = $user['name'];
-	return header("Location: ../playlists/template/home_playlist.php");
+	return header("Location: ../playlists/template/list_playlist.php");
 }
 
 function signup_user($request, $pdo) {
