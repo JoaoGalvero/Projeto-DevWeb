@@ -18,7 +18,6 @@
     <main>
 		<form action="../url.php" method="POST" class="signup-form">
 			<input type="hidden" name="url" value="signup_user">
-			<input type="hidden" name="url" value="signup_user">
 			<div>
 			<label for="username">Nome:</label><br>
 			<input id="username" type="text" name="username" required>

@@ -1,0 +1,99 @@
+<?php
+
+function create_playlist($request, $pdo) {
+	session_start();
+
+	if (!isset($_SESSION['user_id'])) {
+        return header("Location: ../users/template/login.html");
+    }
+
+	$user_id = $_SESSION['user_id']; 
+
+	$cover_path = null;
+    if (!empty($_FILES['cover']['name'])) {
+        $upload_dir = "../_static/uploads/";
+
+        $filename = uniqid() . "_" . basename($_FILES["cover"]["name"]);
+        $target_file = $upload_dir . $filename;
+
+        if (move_uploaded_file($_FILES["cover"]["tmp_name"], $target_file)) {
+            $cover_path = "/_static/uploads/" . $filename;
+        }
+    }
+
+	$stmt = $pdo->prepare("
+        INSERT INTO app.playlists
+        (user_id, name, description, cover_image)
+        VALUES (:user_id, :name, :description, :cover_image)
+    ");
+
+    $stmt->execute([
+        ':user_id'     => $user_id,
+        ':name'        => $request['name'],
+        ':description' => $request['description'] ?? null,
+        ':cover_image' => $cover_path,
+    ]);
+
+    return header("Location: template/home_playlist.php");
+}
+
+function update_playlist($request, $pdo) {
+	$cover_path = null;
+	if (!empty($_FILES['cover']['name'])) {
+        $upload_dir = "../_static/uploads/";
+
+        $filename = uniqid() . "_" . basename($_FILES["cover"]["name"]);
+        $target_file = $upload_dir . $filename;
+
+        if (move_uploaded_file($_FILES["cover"]["tmp_name"], $target_file)) {
+            $cover_path = "/_static/uploads/" . $filename;
+        }
+	}
+
+	$stmt = $pdo->prepare(
+		"UPDATE app.playlists SET name = ?, description = ?" . 
+		($cover_path ? ", cover = ?" : "") .
+		" WHERE id = ?"
+	);
+
+	if ($cover_path) {
+		$stmt->execute([
+			$request['name'], $request['description'],
+			$cover_path, $request['id']
+		]);
+	} else {
+		$stmt->execute([
+			$request['name'], $request['description'], 
+			$request['id']
+		]);
+	}
+
+    return header("Location: template/home_playlist.php");
+}
+
+function delete_playlist($request, $pdo) {
+	$id = (int) $_POST['id'];
+	$stmt = $pdo->prepare("DELETE FROM app.playlists WHERE id = ?");
+	$stmt->execute([$id]);
+	$stmt->execute([$id]);
+    return header("Location: template/home_playlist.php");
+}
+
+function get_user_playlists($pdo) {
+    session_start();
+
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: /users/template/login.php");
+        exit;
+    }
+
+    $user_id = $_SESSION['user_id'];
+
+    $stmt = $pdo->prepare("SELECT * FROM app.playlists WHERE user_id = :uid ORDER BY created_at DESC");
+    $stmt->execute([':uid' => $user_id]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
