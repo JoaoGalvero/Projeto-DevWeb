@@ -8,7 +8,7 @@ header {
     top: 6vh;
     left: 2.5vw;
 
-    z-index: 999;
+    z-index: 30;
 }
 
 .btn-voltar {

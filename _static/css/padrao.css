@@ -1,4 +1,3 @@
-/* ===== CONFIG PADRÃO DO FUNDO ===== */
 body {
     margin: 0;
     padding: 0;
@@ -12,16 +11,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    position: relative;
+    z-index: 0;
 }
 
 main {
     width: 100%;
     height: 100dvh;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
-/* ===== CONFIG PADRÃO DO RODAPÉ ===== */
 .footer {
     font-family: 'Roboto', sans-serif;
     position: absolute;
@@ -30,7 +31,47 @@ main {
     background-color: rgba(0, 0, 0, 0.068);
     color: rgba(255, 255, 255, 0.39);
     text-align: center;
-
     font-size: 0.6vw;
     backdrop-filter: blur(2px);
+
+    z-index: 101;
+}
+
+#page-transition {
+    position: fixed;
+    z-index: 100;
+
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+    pointer-events: none;
+    
+    transform: translateX(-100%);
+    transition: transform 0.8s ease-in-out;
+}
+
+#page-transition.active {
+    transform: translateX(0);
+}
+
+#page-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease-in-out;
+}
+
+#page-loading.active {
+  opacity: 1;
+  pointer-events: all;
 }

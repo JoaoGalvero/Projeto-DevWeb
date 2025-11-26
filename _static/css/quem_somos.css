@@ -5,38 +5,60 @@ body {
 main {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .media-player-wrapper {
+    position: relative;
     background-image: url('../assets/MediaPlayer_Layer.png');
-    background-size: cover;
-    width: 104vw;
-    height: 104vh;
-    transform: scale(0.89);
-}
-
-#mp-png {
-    width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 92vw;
+    aspect-ratio: 1853 / 972;
     height: auto;
-    object-fit: contain;
-    display: block;
 }
 
-#btn-return {
+.btn-voltar {
     position: absolute;
-    top: 9.7%;
-    left: 1.8%;
-    width: 4.2vw;
+    top: calc(5% + 1.0vw);
+    left: calc(2% + 0.3vw);
+    width: 4%;
     aspect-ratio: 1 / 1;
     background: url('../assets/button-return2.png') center/contain no-repeat;
     border: none;
     background-color: transparent;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
-    z-index: 10;
+    
+    z-index: 30;
 }
 
-#btn-return:hover {
+.btn-voltar:hover {
     transform: scale(1.05);
     filter: brightness(1.3);
+}
+
+@media (max-width: 700px) {
+    body {
+        background: url('../assets/quem-somos-telamenor.jpg') center/cover no-repeat;
+    }
+
+    .media-player-wrapper {
+        background-image: url('../assets/MediaPlayer_Layer-telamenor.png');
+        position: relative;
+        width: 95vw;
+        aspect-ratio: 1059 / 1483;
+        height: 98vh;
+    }
+
+    .btn-voltar {
+        background-image: url('../assets/button-return2-telamenor.png');
+        position: fixed;
+
+        top: calc(8.5% + 0.01vw);
+        left: calc(7.7% + 0.01vw);
+        width: calc(9% + 0.01vw);
+    }
 }
