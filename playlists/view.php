@@ -34,7 +34,7 @@ function create_playlist($request, $pdo) {
         ':cover_image' => $cover_path,
     ]);
 
-    return header("Location: template/home_playlist.php");
+    return header("Location: template/list_playlist.php");
 }
 
 function update_playlist($request, $pdo) {
@@ -68,19 +68,18 @@ function update_playlist($request, $pdo) {
 		]);
 	}
 
-    return header("Location: template/home_playlist.php");
+    return header("Location: template/list_playlist.php");
 }
 
 function delete_playlist($request, $pdo) {
 	$id = (int) $_POST['id'];
 	$stmt = $pdo->prepare("DELETE FROM app.playlists WHERE id = ?");
 	$stmt->execute([$id]);
-	$stmt->execute([$id]);
-    return header("Location: template/home_playlist.php");
+    return header("Location: template/list_playlist.php");
 }
 
 function get_user_playlists($pdo) {
-    session_start();
+    //session_start();
 
     if (!isset($_SESSION['user_id'])) {
         header("Location: /users/template/login.php");
@@ -95,5 +94,54 @@ function get_user_playlists($pdo) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function playlist_detail($request, $pdo) {
+    session_start();
+	
+	if (!isset($_SESSION['user_id'])) {
+        header("Location: /users/template/login.php");
+        exit;
+    }
 
+	$id = (int) $request['id'];
+	$stmt = $pdo->prepare("SELECT * FROM app.playlists WHERE id = ?");
+    $stmt->execute([$id]);
+    $playlist = $stmt->fetch();
 
+    $stmt = $pdo->prepare("SELECT * FROM app.musics WHERE playlist_id = ?
+        ORDER BY added_at DESC
+    ");
+    $stmt->execute([$id]);
+    $musics = get_playlist_embed_link($stmt->fetchAll(PDO::FETCH_ASSOC));
+
+    include "template/playlist_detail.php";
+}
+
+function get_playlist_embed_link($rows) {
+	foreach ($rows as &$row) {
+        $parts = explode("track/", $row['link']);
+
+        if (isset($parts[1])) {
+            $row['embed_link'] = $parts[1];
+        } else {
+            $row['embed_link'] = "";
+        }
+    }
+    return $rows;
+}
+
+function add_music_to_playlist($request, $pdo) {
+	$stmt = $pdo->prepare("
+        INSERT INTO app.musics
+        (playlist_id, link)
+        VALUES (?, ?)
+    ");
+	$stmt->execute([$request['playlist_id'], $request['link']]);
+	header("Location: /playlists/url.php?url=playlist_details&id=" . $request['playlist_id']);
+}
+
+function delete_music($request, $pdo) {
+	$id = (int)$request['id'];
+	$stmt = $pdo->prepare("DELETE FROM app.musics WHERE id = ?");
+	$stmt->execute([$id]);
+	header("Location: /playlists/url.php?url=playlist_details&id=" . $request['playlist_id']);
+}
