@@ -1,61 +1,57 @@
 body {
-    background-image: url('../assets/index-fundo.jpg');
+  background-image: url('../assets/index-fundo.jpg');
 }
 
 .btn {
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 1s ease;
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 1s ease;
 }
 
 .btn:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .btn-login {
-    background-image: url('../assets/button_login.png');
-
-    left: 41.5vw;
-    top: 22vh;
-    width: 18vw;
-    aspect-ratio: 262 / 83;
-
-    z-index: 3;
+  position: absolute;
+  top: 22vh;
+  left: 41.5vw;
+  width: 18vw;
+  aspect-ratio: 262 / 83;
+  background-image: url('../assets/button_login.png');
+  z-index: 3;
 }
 
 .btn-login:hover {
-    background-image: url('../assets/button_login-hover.png');
+  background-image: url('../assets/button_login-hover.png');
 }
 
 .btn-cadastro {
-    background-image: url('../assets/button_cadastro.png');
-    position: fixed;
-
-    left: 39.6vw;
-    top: 55vh;
-    width: 22vw;
-    aspect-ratio: 329 / 135;
-    
-    z-index: 3;
+  position: fixed;
+  top: 55vh;
+  left: 39.6vw;
+  width: 22vw;
+  aspect-ratio: 329 / 135;
+  background-image: url('../assets/button_cadastro.png');
+  z-index: 3;
 }
 
 .btn-cadastro:hover {
-    background-image: url('../assets/button_cadastro-hover.png');
+  background-image: url('../assets/button_cadastro-hover.png');
 }
 
 .btn-qa {
-    background-image: url('../assets/button_q&a.png');
-
-    top: 67vh;
-    left: 27.5vw;
-    width: 45vw;
-    aspect-ratio: 690 / 250;
-
-    z-index: 2;
+  position: absolute;
+  top: 67vh;
+  left: 27.5vw;
+  width: 45vw;
+  aspect-ratio: 690 / 250;
+  background-image: url('../assets/button_q&a.png');
+  z-index: 2;
 }
 
 .btn-qa:hover {
-    background-image: url('../assets/button_q&a_pressed.png');
+  background-image: url('../assets/button_q&a_pressed.png');
 }

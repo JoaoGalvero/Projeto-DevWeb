@@ -9,7 +9,6 @@
 
     <title>Playlists</title>
 </head>
-<body>
     <nav>
 		<h1 id="logo">WebDev</h1>
 		<ul class="nav-ul">

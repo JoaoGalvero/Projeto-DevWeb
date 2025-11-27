@@ -1,69 +1,84 @@
-// INICIALIZAÇÃO DO SCRIPT
 window.addEventListener("load", () => {
   const transition = document.getElementById("page-transition");
-  if (!transition) return;
+  const loader = document.getElementById("page-loader");
+  if (!transition || !loader) return;
 
-  // VERIFICAÇÃO DE RECARREGAMENTO (SEM ANIMAÇÃO, MAS MANTÉM FUNCIONALIDADE)
   const navEntries = performance.getEntriesByType("navigation");
   const isReload = navEntries.length && navEntries[0].type === "reload";
+  const direction = sessionStorage.getItem("transitionDirection");
+  sessionStorage.removeItem("transitionDirection");
 
   if (isReload) {
     transition.style.transition = "none";
     transition.style.transform = "translateX(-100%)";
-  }
-
-  // MÓDULO DE ENTRADA (ANIMAÇÃO AO CARREGAR PÁGINA)
-  const direction = sessionStorage.getItem("transitionDirection");
-  sessionStorage.removeItem("transitionDirection");
-
-  if (!isReload) {
+    loader.classList.remove("active");
+  } else {
     transition.style.transition = "none";
-
-    if (direction === "right") {
+    if (direction === "right" || direction === "left") {
       transition.style.transform = "translateX(0)";
       transition.getBoundingClientRect();
       requestAnimationFrame(() => {
         transition.style.transition = "transform 0.8s ease-in-out";
-        transition.style.transform = "translateX(-100%)";
-      });
-    } else if (direction === "left") {
-      transition.style.transform = "translateX(0)";
-      transition.getBoundingClientRect();
-      requestAnimationFrame(() => {
-        transition.style.transition = "transform 0.8s ease-in-out";
-        transition.style.transform = "translateX(100%)";
+        transition.style.transform =
+          direction === "right"
+            ? "translateX(-100%)"
+            : "translateX(100%)";
       });
     } else {
       transition.style.transform = "translateX(-100%)";
     }
+    loader.classList.add("active");
+    setTimeout(() => {
+      loader.classList.remove("active");
+    }, 300);
   }
 
-  // FUNÇÃO CENTRAL DE TRANSIÇÃO ENTRE PÁGINAS
   const handleTransition = (href, from) => {
     sessionStorage.setItem("transitionDirection", from);
+    document.body.style.pointerEvents = "none";
+    loader.classList.remove("active");
     transition.style.transition = "none";
-    transition.style.transform = from === "left" ? "translateX(-100%)" : "translateX(100%)";
+    transition.style.transform =
+      from === "left" ? "translateX(-100%)" : "translateX(100%)";
     transition.getBoundingClientRect();
     requestAnimationFrame(() => {
-      transition.style.transition = "transform 0.8s ease-in-out";
+      transition.style.transition = "transform 1s ease-in-out";
       transition.style.transform = "translateX(0)";
     });
-    transition.addEventListener("transitionend", () => window.location.href = href, { once: true });
+    transition.addEventListener(
+      "transitionend",
+      () => {
+        void loader.offsetHeight;
+        setTimeout(() => {
+          loader.classList.add("active");
+          setTimeout(() => {
+            window.location.href = href;
+          }, 400);
+        }, 50);
+      },
+      { once: true }
+    );
   };
 
-  // MÓDULO DE NAVEGAÇÃO (LINKS NORMAIS)
   document.querySelectorAll("a[href]").forEach(link => {
     link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
       e.preventDefault();
-      handleTransition(link.getAttribute("href"), "left");
+      handleTransition(href, "left");
     });
   });
 
-  // MÓDULO DE BOTÕES DE VOLTAR (TRANSIÇÃO REVERSA)
-  document.querySelectorAll(".btn-voltar").forEach(btn => {
-    btn.addEventListener("click", e => {
+  document.querySelectorAll(".btn-voltar").forEach(button => {
+    button.addEventListener("click", e => {
       e.preventDefault();
       handleTransition(`${window.location.origin}/index.html`, "right");
     });
+  });
+
+  loader.addEventListener("transitionend", e => {
+    if (!loader.classList.contains("active") && e.propertyName === "opacity") {
+      document.body.style.pointerEvents = "auto";
+    }
   });
 });

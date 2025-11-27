@@ -11,8 +11,8 @@
     <title>Quem Somos?</title>
 </head>
 <body>
-    <div id="page-loading" class="active"></div>
     <div id="page-transition"></div>
+    <div id="page-loader"></div>
 
     <header>
 
@@ -28,6 +28,5 @@
     </footer>
     
     <script src="_static/app/page-transition.js"></script>
-    <script src="_static/app/page-loader.js"></script>
 </body>
 </html>
