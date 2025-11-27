@@ -1,31 +1,61 @@
-/* ===== CONFIG PADRÃO DO FUNDO ===== */
 body {
-    margin: 0;
-    padding: 0;
-    height: 100dvh;
-    overflow-x: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
 }
 
 main {
-    width: 100%;
-    height: 100dvh;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+  overflow: visible;
 }
 
-/* ===== CONFIG PADRÃO DO RODAPÉ ===== */
 .footer {
-    font-family: 'Roboto', sans-serif;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.068);
-    color: rgba(255, 255, 255, 0.39);
-    text-align: center;
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.068);
+  color: rgba(255, 255, 255, 0.39);
+  text-align: center;
+  font-size: 0.6vw;
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+}
 
-    font-size: 0.6vw;
-    backdrop-filter: blur(2px);
+#page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  transform: translateX(-100%);
+  transition: transform 1s ease-in-out;
+  pointer-events: none;
+}
+
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: url("../assets/img/blur-overlay.png") center/cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#page-loader.active {
+  opacity: 1;
+  pointer-events: all;
 }

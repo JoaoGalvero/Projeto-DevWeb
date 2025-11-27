@@ -1,102 +1,100 @@
 body {
-    background-image: url('../assets/login-fundo.jpg');
-    background-position-y: 30%;
+  background-image: url('../assets/login-fundo.jpg');
+  background-position-y: 30%;
 }
 
 header {
-    position: fixed;
-    top: 6vh;
-    left: 2.5vw;
-
-    z-index: 999;
+  position: fixed;
+  top: 6vh;
+  left: 2.5vw;
+  z-index: 100;
 }
 
 .btn-voltar {
-    border: none;
-    background: none;
-    cursor: pointer;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .btn-voltar img {
-    width: 10vw;
-    transform: rotate(180deg);
-    transition: transform 0.3s ease, filter 0.3s ease;
+  width: 10vw;
+  transform: rotate(180deg);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .btn-voltar img:hover {
-    filter: brightness(1.2);
-    transform: rotate(180deg) scale(1.04);
+  filter: brightness(1.2);
+  transform: rotate(180deg) scale(1.04);
 }
 
 .login-form {
-    background-color: transparent;
-    position: absolute;
-    left: 41.5vw;
-    top: 37vh;
-    width: 17vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 37vh;
+  left: 41.5vw;
+  width: 17vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
 }
 
 .login-form label {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 1.4vw;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 0.3em;
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.15s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.3em;
+  font-size: 1.4vw;
+  font-weight: 600;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
 }
 
 .login-form label:hover {
-    text-shadow: 0 0 12px rgba(220, 100, 255, 0.8);
-    transform: scale(1.01);
+  text-shadow: 0 0 12px rgba(220, 100, 255, 0.8);
+  transform: scale(1.01);
 }
 
 .login-form input {
-    background: url('../assets/input-basic.png') no-repeat center center;
-    background-size: cover;
-    border-radius: 2rem;
-    border: none;
-    width: 100%;
-    height: 5.3vh;
-    font-size: 1vw;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    font-style: italic;
-    color: white;
-    background-color: transparent;
-    transition: all 0.3s ease;
-    margin-bottom: 5.3vh;
+  width: 100%;
+  height: 5.3vh;
+  margin-bottom: 5.3vh;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1vw;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  text-align: center;
+  color: white;
+  background: url('../assets/input-basic.png') no-repeat center center;
+  background-size: cover;
+  background-color: transparent;
+  transition: all 0.3s ease;
 }
 
 .login-form input:focus {
-    outline: none;
-    filter: brightness(1.25);
+  outline: none;
+  filter: brightness(1.25);
 }
 
-/* ===== BOTÃO ENVIAR ===== */
 .login-form button {
-    background-image: url('../assets/button-enviar.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-color: transparent;
-    width: 6vw;
-    height: 7vh;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
+  width: 6vw;
+  height: 7vh;
+  border: none;
+  cursor: pointer;
+  background-image: url('../assets/button-enviar.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: transparent;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .login-form button:hover {
-    transform: scale(1.05);
-    filter: brightness(1.3);
+  transform: scale(1.05);
+  filter: brightness(1.3);
 }
