@@ -1,79 +1,106 @@
-<html lang="pt-BR" data-bs-theme="dark">
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . "/../../_core/connection.php";
+require_once __DIR__ . "/../view.php";
+
+if (!isset($_GET['id'])) {
+    die("ID da playlist não informado.");
+}
+
+$pdo = db();
+$id = (int) $_GET['id'];
+
+// Busca playlist
+$stmt = $pdo->prepare("SELECT * FROM app.playlists WHERE id = ?");
+$stmt->execute([$id]);
+$playlist = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$playlist) {
+    die("Playlist não encontrada.");
+}
+
+// Busca músicas
+$stmt = $pdo->prepare("SELECT * FROM app.musics WHERE playlist_id = ? ORDER BY added_at DESC");
+$stmt->execute([$id]);
+$musics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-	<link rel="stylesheet" href="../../_static/css/playlists.css">
-	<link rel="stylesheet" href="../../_static/css/base_bootstrap.css">
-	<title>Playlists</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title><?= htmlspecialchars($playlist['name']) ?> - AAL01</title>
+    <link rel="stylesheet" href="../../_static/css/padrao.css">
+    <link rel="stylesheet" href="../../_static/css/home.css">
+    <link rel="stylesheet" href="../../_static/css/playlist_detail.css">
+    <link rel="icon" type="image/x-icon" href="../../_static/assets/favicon.ico">
 </head>
 <body>
-	<nav class="navbar bg-body-tertiary">
-	  <div class="container-fluid">
-		<a class="navbar-brand" href="#">AUDIO·ANG3L LIBRARY·01</a>
-	  </div>
-	</nav>
-	<div class="container my-4">
-		<div class="row mb-2">
-			<div class="col-auto">
-			<?php if ($playlist['cover_image']): ?>
-				<img src="<?= htmlspecialchars($playlist['cover_image']) ?>" 
-					class="playlist-img-detail"
-					alt="Capa">
-			<?php else: ?>
-				<img src="../_static/default_cover.png" 
-					class="playlist-img-detail"
-					alt="Capa padrão">
-			<?php endif; ?>
-			</div>
-			<div class="col d-flex flex-row justify-content-between align-items-end">
-				<div>
-					<h1 class="m-0"><?= htmlspecialchars($playlist['name'])?></h1>
-					<p class="card-text"><?= htmlspecialchars($playlist['description'])?></p>
-				</div>
-				<div class="btn-group w-25" role="group">
-					<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-					  Adicionar Música
-					</button>
-					<div class="dropdown-menu p-2">
-						<form action="/playlists/url.php" method="POST">
-							<input type="hidden" name="url" value="add_music_to_playlist">
-							<input type="hidden" name="playlist_id" value="<?= $playlist['id'] ?>">
-							<div class="mb-3">
-								<label for="playlist-name" class="form-label">Link:</label>
-								<input type="text" class="form-control" id="music-link" name="link" placeholder="Digite o link">
-							</div>
-							<button type="submit" class="btn btn-primary">Salvar</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr>
-		<div class="row row-cols-1 row-cols-md-3 g-4">
-			<?php foreach ($musics as $m): ?>
-			<div class="col">
-				<div class="row">
-					<div class="col-auto">
-						<iframe data-testid="embed-iframe" style="border-radius:12px;"
-						src="https://open.spotify.com/embed/track/<?= htmlspecialchars($m['embed_link'])?>?utm_source=generator&theme=0"
-						width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-					</div>
-					<div class="col-auto d-flex align-items-center justify-content-center">
-						<form class="m-0" action="/playlists/url.php" method="POST">
-							<input type="hidden" name="url" value="delete_music">
-							<input type="hidden" name="id" value="<?= $m["id"] ?>">
-							<input type="hidden" name="playlist_id" value="<?= $playlist['id'] ?>">
-							<button type="submit" class="btn btn-link p-0 text-danger">
-								<i class="bi bi-trash-fill"></i>
-							</button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<?php endforeach; ?>
-		</div>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <button class="btn-voltar" onclick="window.location.href='./home.php'">← Voltar</button>
+
+
+    <div class="playlist-detail-container">
+        <div class="playlist-detail-cover">
+            <?php if (!empty($playlist['cover_image'])): ?>
+                <img src="<?= htmlspecialchars($playlist['cover_image']) ?>" alt="Capa da playlist">
+            <?php else: ?>
+                <img src="../../_static/assets/default_cover.png" alt="Capa padrão">
+            <?php endif; ?>
+        </div>
+
+        <h2 class="playlist-detail-title"><?= htmlspecialchars($playlist['name']) ?></h2>
+        <p class="playlist-detail-description"><?= htmlspecialchars($playlist['description']) ?></p>
+
+        <form class="add-music-form" action="../url.php" method="POST">
+            <input type="hidden" name="url" value="add_music_to_playlist">
+            <input type="hidden" name="playlist_id" value="<?= $playlist['id'] ?>">
+            <input type="text" name="link" placeholder="Link da música (Spotify)" required>
+            <button type="submit">Adicionar Música</button>
+        </form>
+
+        <div class="music-list">
+            <?php if (!empty($musics)): ?>
+                <?php foreach ($musics as $m): ?>
+                    <?php
+                        // Extrai o ID do link do Spotify (se vier link completo)
+                        $embedId = '';
+                        if (strpos($m['link'], 'track/') !== false) {
+                            $parts = explode('track/', $m['link']);
+                            $embedId = explode('?', $parts[1])[0];
+                        } else {
+                            $embedId = trim($m['link']);
+                        }
+                    ?>
+                    <div class="music-item">
+                        <iframe 
+                            src="https://open.spotify.com/embed/track/<?= htmlspecialchars($embedId) ?>?utm_source=generator&theme=0"
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy">
+                        </iframe>
+
+                        <form action="../url.php" method="POST" class="delete-music-form">
+                            <input type="hidden" name="url" value="delete_music">
+                            <input type="hidden" name="id" value="<?= $m['id'] ?>">
+                            <input type="hidden" name="playlist_id" value="<?= $playlist['id'] ?>">
+                            <button type="submit" class="btn-delete">x</button>
+                        </form>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="no-music">Nenhuma música adicionada ainda.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 AUDIO·ANG3L LIBRARY·01 — CRIADO POR PEDRO GALVERO E KAUAI TÁVORA APENAS PARA USO EDUCATIVO — AAL01</p>
+    </footer>
 </body>
+</html>

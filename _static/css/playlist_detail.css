@@ -1,0 +1,176 @@
+body {
+  background: url("../assets/home-fundo.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.btn-voltar {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.btn-voltar:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.playlist-detail-container {
+  max-width: 600vw;
+  margin: 60px auto 60px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 40px;
+  box-shadow: 0 0 30px rgba(60, 47, 142, 0.6);
+  padding: 50px 40px 80px;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.playlist-detail-container:hover {
+  box-shadow: 0 0 40px rgba(85, 46, 63, 0.8);
+}
+
+.playlist-detail-cover img {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(60, 47, 142, 0.6);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.playlist-detail-cover img:hover {
+  transform: scale(1.05);
+}
+
+.playlist-detail-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3c2f8e;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.playlist-detail-description {
+  font-size: 0.9rem;
+  color: #beb7ba;
+  margin-bottom: 30px;
+}
+
+.add-music-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.add-music-form input[type="text"] {
+  width: 280px;
+  padding: 8px 12px;
+  border: 1px solid rgba(190, 183, 186, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.add-music-form input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #3c2f8e;
+  box-shadow: 0 0 10px rgba(60, 47, 142, 0.4);
+  outline: none;
+}
+
+.add-music-form button {
+  background: #3c2f8e;
+  border: none;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+}
+
+.add-music-form button:hover {
+  background: #552e3f;
+  box-shadow: 0 0 12px rgba(85, 46, 63, 0.6);
+}
+
+.music-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 10px;
+  scrollbar-color: rgba(190, 183, 186, 0.4) transparent;
+  scrollbar-width: thin;
+}
+
+.music-item {
+  background: rgba(25, 20, 30, 0.85);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  gap: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.music-item:hover {
+  transform: scale(1.01);
+  background: rgba(35, 30, 40, 0.9);
+}
+
+.music-item iframe {
+  width: 100%;
+  height: 80px;
+  border: none;
+  border-radius: 1px;
+}
+
+.btn-delete {
+  background: #552e3f;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.btn-delete:hover {
+  background: #7a4258;
+  box-shadow: 0 0 10px rgba(85, 46, 63, 0.6);
+}
+
+.no-music {
+  font-size: 0.9rem;
+  color: #beb7ba;
+  margin-top: 25px;
+}

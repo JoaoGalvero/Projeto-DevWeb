@@ -72,7 +72,7 @@ window.addEventListener("load", () => {
   document.querySelectorAll(".btn-voltar").forEach(button => {
     button.addEventListener("click", e => {
       e.preventDefault();
-      handleTransition(`${window.location.origin}/index.html`, "right");
+      handleTransition(`${window.location.origin}/index.php`, "right");
     });
   });
 

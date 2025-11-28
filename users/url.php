@@ -4,5 +4,8 @@ require_once "view.php";
 
 $router = new Router([
 	'signup_user' => 'signup_user',
-	'login_user' => 'login_user'
+	'login_user' => 'login_user',
+	'logout_user' => 'logout_user'
 ]);
+
+exit;
