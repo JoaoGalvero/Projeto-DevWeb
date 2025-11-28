@@ -28,22 +28,6 @@
 					<h1 class="m-0"><?= htmlspecialchars($playlist['name'])?></h1
 					<p class="card-text"><?= htmlspecialchars($playlist['description'])?></p>
 				</div>
-				<div class="btn-group w-25" role="group">
-					<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-					  Adicionar Música
-					</button>
-					<div class="dropdown-menu p-2 teste">
-						<form action="/playlists/url.php" method="POST" class="teste">
-							<input type="hidden" name="url" value="add_music_to_playlist">
-							<input type="hidden" name="playlist_id" value="<?= $playlist['id'] ?>">
-							<div class="mb-3">
-								<label for="playlist-name" class="form-label">Link:</label>
-								<input type="text" class="form-control" id="music-link" name="link" placeholder="Digite o link">
-							</div>
-							<button type="submit" class="btn btn-primary">Salvar</button>
-						</form>
-					</div>
-				</div>
 			</div>
 		</div>
 		<div class="row row-cols-1 row-cols-md-3 g-4 p-2 mx-auto">
@@ -54,16 +38,6 @@
 						<iframe data-testid="embed-iframe" style="border-radius:12px;"
 						src="https://open.spotify.com/embed/track/<?= htmlspecialchars($m['embed_link'])?>?utm_source=generator&theme=0"
 						width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-					</div>
-						<div class="col-auto d-flex align-items-center justify-content-center">
-						<form class="m-0" action="/playlists/url.php" method="POST">
-							<input type="hidden" name="url" value="delete_music">
-							<input type="hidden" name="id" value="<?= $m["id"] ?>">
-							<input type="hidden" name="playlist_id" value="<?= $playlist['id'] ?>">
-							<button type="submit" class="btn btn-link p-0 text-danger">
-								<i class="bi bi-trash-fill"></i>
-							</button>
-						</form>
 					</div>
 				</div>
 			</div>

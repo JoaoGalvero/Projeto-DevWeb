@@ -95,13 +95,6 @@ function get_user_playlists($pdo) {
 }
 
 function playlist_detail($request, $pdo) {
-    session_start();
-	
-	if (!isset($_SESSION['user_id'])) {
-        header("Location: /users/template/login.php");
-        exit;
-    }
-
 	$id = (int) $request['id'];
 	$stmt = $pdo->prepare("SELECT * FROM app.playlists WHERE id = ?");
     $stmt->execute([$id]);
@@ -116,7 +109,24 @@ function playlist_detail($request, $pdo) {
     include "template/playlist_detail.php";
 }
 
+function explore_playlist_detail($request, $pdo) {
+	$id = (int) $request['id'];
+	$stmt = $pdo->prepare("SELECT * FROM app.playlists WHERE id = ?");
+    $stmt->execute([$id]);
+    $playlist = $stmt->fetch();
+
+    $stmt = $pdo->prepare("SELECT * FROM app.musics WHERE playlist_id = ?
+        ORDER BY added_at DESC
+    ");
+    $stmt->execute([$id]);
+    $musics = get_playlist_embed_link($stmt->fetchAll(PDO::FETCH_ASSOC));
+
+    include "template/explore_playlist_detail.php";
+}
+
 function get_playlist_embed_link($rows) {
+    // https://open.spotify.com/track/5rzVZ8TEssNlN67dW0tCXK?si=8951e9755e834aeb
+	// 5rzVZ8TEssNlN67dW0tCXK
 	foreach ($rows as &$row) {
         $parts = explode("track/", $row['link']);
 
@@ -145,3 +155,32 @@ function delete_music($request, $pdo) {
 	$stmt->execute([$id]);
 	header("Location: /playlists/url.php?url=playlist_details&id=" . $request['playlist_id']);
 }
+
+
+function get_explore_page($request, $pdo) {
+    session_start();
+
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: /users/template/login.php");
+        exit;
+    }
+	$user_id = $_SESSION['user_id'];
+	$username = $_SESSION['user_name'];
+	$email = $_SESSION['user_email'];
+
+
+	$stmt = $pdo->prepare("SELECT * FROM app.playlists ORDER BY created_at DESC");
+	$stmt->execute();
+	$playlists = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	$stmt = $pdo->prepare("SELECT * FROM app.playlists ORDER BY created_at DESC");
+	$stmt->execute();
+	$playlists = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    include "template/home.php";
+}
+
+
+
+
+

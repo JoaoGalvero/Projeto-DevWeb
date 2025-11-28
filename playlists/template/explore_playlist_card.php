@@ -1,7 +1,7 @@
 <?php foreach ($playlists as $p): ?>
 	<div class="col">
-		<div class="card h-100">
-			<a href="../url.php?url=playlist_details&id=<?=$p['id']?>" class="text-decoration-none">
+		<div class="card small-card h-100">
+			<a href="/playlists/url.php?url=explore_playlist_detail&id=<?=$p['id']?>" class="text-decoration-none">
 			<?php if ($p['cover_image']): ?>
 				<img src="<?= htmlspecialchars($p['cover_image']) ?>" 
 					class="card-img-top playlist-img-list"
@@ -18,20 +18,6 @@
 					<button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 						...
 					</button>
-					<ul class="dropdown-menu dropdown-menu-dark">
-						<li>
-							<form action="../url.php" method="POST" class="m-0" onsubmit="return confirm('Excluir esta playlist?');">
-								<input type="hidden" name="url" value="delete_playlist">
-								<input type="hidden" name="id" value="<?= $p['id'] ?>">
-								<button type="submit" class="dropdown-item" href="#">Excluir playlist</button>
-							</form>
-						</li>
-						<li>
-							<button class="dropdown-item" onclick='openEditModal(<?= json_encode($p)?>)'>
-								Editar propriedades
-							</button>
-						</li>
-					</ul>
 				</div>	
 				<p class="card-text"><?= htmlspecialchars($p['description']) ?></p>
 			</div>

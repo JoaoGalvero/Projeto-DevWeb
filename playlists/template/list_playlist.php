@@ -16,13 +16,9 @@
 	<title>Playlists</title>
 </head>
 <body>
-	<nav class="navbar bg-body-tertiary">
-	  <div class="container-fluid">
-		<a class="navbar-brand" href="#">AUDIO·ANG3L LIBRARY·01</a>
-	  </div>
-	</nav>
+	<?php include 'nav.php'?>
 	<div class="container my-4">
-		<div class="row align-items-center mb-2">
+		<div class="row align-items-center mb-2 playlist-menu p-2">
 			<div class="col-12 d-flex justify-content-between align-items-center">
 				<h1 class="m-0">Minhas Playlists</h1>
 				<a href="#"  data-bs-toggle="modal" data-bs-target="#playlist-modal">
@@ -34,7 +30,7 @@
 		<?php include "create_playlist_modal.php"; ?>
 		<?php include "edit_playlist_modal.php"; ?>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
-			<?php include "playlist_card.php"; ?>
+			<?php include "playlist_card.php";?>
 		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
