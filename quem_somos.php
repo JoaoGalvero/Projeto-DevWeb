@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../_static/CSS/padrao.css">
-    <link rel="stylesheet" href="../_static/CSS/quem_somos.css">    
+    <link rel="stylesheet" href="/_static/css/padrao.css">
+    <link rel="stylesheet" href="/_static/css/quem_somos.css">    
     <link rel="icon" type="image/x-icon" href="../_static/assets/favicon.ico">
 
     <title>Quem Somos?</title>
@@ -21,7 +21,6 @@
     <main>
         <div class="media-player-wrapper">
                 <button class="btn-voltar"></button>
-
             <section>
                 <h1>A <strong id="Audio-Angel">Audio-Angel Library.01</strong> é uma plataforma criada para quem deseja organizar suas playlists de um jeito simples e prático.</h2>
                 <h2>Aqui, você reune suas músicas favoritas e organiza do jeito que achar melhor — ordenar, categorizar e guardar o que mais combina com você!</p>

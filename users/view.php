@@ -1,4 +1,5 @@
 <?php
+require_once "../playlists/view.php";
 
 function login_user($request, $pdo) {
 	session_start();
@@ -19,8 +20,9 @@ function login_user($request, $pdo) {
 
     $_SESSION['user_id']    = $user['id'];
     $_SESSION['user_email'] = $user['email'];
-    $_SESSION['user_name']  = $user['name'];
-	return header("Location: ../playlists/template/list_playlist.php");
+	$_SESSION['user_name']  = $user['name'];
+	
+	get_explore_page($request, $pdo);
 }
 
 function signup_user($request, $pdo) {
