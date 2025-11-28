@@ -111,7 +111,7 @@ $username = get_user_name($pdo);
           </div>
         <?php endforeach; ?>
       <?php else: ?>
-        <p class="no-playlists">Nenhuma playlist encontrada.</p>
+        <p class="no-playlists"></p>
       <?php endif; ?>
       <div class="btn-playlists" data-modal-target="#playlist-modal">+</div>
     </div>
